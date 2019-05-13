@@ -4,6 +4,10 @@ class Boat < ActiveRecord::Base
   has_many    :classifications, through: :boat_classifications
 
   def self.first_five
-    
+    all.limit(5)
+  end
+
+  def
+    Boat.where("length" < (5))
   end
 end
