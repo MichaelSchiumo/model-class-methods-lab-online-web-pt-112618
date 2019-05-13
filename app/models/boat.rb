@@ -7,7 +7,19 @@ class Boat < ActiveRecord::Base
     all.limit(5)
   end
 
-  def
-    Boat.where("length" < (5))
+  def self.dinghy
+    where("length < 20")
+  end
+
+  def self.ship
+    where("length >= 20")
+  end
+
+  def self.last_three_alphabetically
+    Boat.order('name DESC').limit(3)
+  end
+
+  def self.without_a_captain
+    Boat.where.not('captain_id')
   end
 end
